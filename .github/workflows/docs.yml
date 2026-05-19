@@ -41,9 +41,10 @@ jobs:
           zensical build --clean
 
       - name: Upload Artifact
+        if: matrix.python-version == '3.11' 
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site/
+          path: site
 
   deploy_site:
     runs-on: ubuntu-latest
