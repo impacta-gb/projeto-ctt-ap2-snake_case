@@ -1,23 +1,297 @@
-##Hello World em Go
+# 🧠 Fundamentos da Linguagem Go
 
-O tradicional primeiro programa demonstra a estrutura básica: 'package main', importação do 'fmt' e a função 'main()' usando 'fmt.Println()'. Ensina a sintaxe do Go, compilação, execução e verifica se o ambiente de desenvolvimento está configurado corretamente. É o ponto de entrada para aprender Go.
+> Conhecendo os conceitos básicos da linguagem Go e os elementos essenciais para iniciar o desenvolvimento de aplicações modernas.
 
-##Comando go
+---
 
-Ferramenta principal para gerenciar o código-fonte da Go, oferecendo uma interface unificada para compilar, testar, formatar código e gerenciar dependências. Inclui subcomandos como 'build', 'run', 'test', 'fmt' e 'mod'. Automatiza todo o fluxo de desenvolvimento.
+# 👋 Hello World em Go
 
-##Variáveis e Constantes
+O tradicional programa **Hello World** demonstra a estrutura básica de uma aplicação Go.
 
-Variáveis armazenam valores que podem ser alterados, sendo declaradas com 'var' ou ':='. Constantes armazenam valores imutáveis, declaradas com 'const'. As variáveis podem ter tipos definidos explicitamente ou utilizar inferência de tipo. Constantes precisam ser determinadas em tempo de compilação. Ambos suportam declarações em bloco e escopo de pacote ou função.
+Ele é utilizado para:
 
-##Valores Zero
+* ✅ aprender a sintaxe inicial
+* ✅ entender a estrutura do código
+* ✅ testar o ambiente de desenvolvimento
+* ✅ executar o primeiro programa
 
-São os valores padrão atribuídos a variáveis não inicializadas: '0' para números, 'false' para booleanos, '""' para strings e 'nil' para pointers, slices e maps. Isso garante um estado inicial previsível e reduz erros de inicialização. É um conceito fundamental para criar código confiável em Go.
+---
 
-##const e iota
+# 💻 Exemplo de Hello World
 
-Constantes declaradas com const representam valores fixos em tempo de compilação. O iota cria constantes inteiras sequenciais começando em zero e reinicia a cada bloco const. É muito utilizado para enumerações, flags de bits e sequências de constantes sem a necessidade de definir valores manualmente.
+```go id="8r4e2f"
+package main
 
-##Escopo e Shadowing
+import "fmt"
 
-Escopo determina onde uma variável pode ser acessada, variando do nível global até blocos internos. Shadowing ocorre quando uma variável em um escopo interno “esconde” outra variável com o mesmo nome em um escopo externo. Go possui escopo de pacote, função e bloco. Entender esse comportamento ajuda a evitar bugs causados pela criação acidental de novas variáveis.
+func main() {
+    fmt.Println("Hello World")
+}
+```
+
+---
+
+# 📦 Estrutura do programa
+
+| Elemento        | Função                                |
+| --------------- | ------------------------------------- |
+| `package main`  | Define o pacote principal             |
+| `import "fmt"`  | Importa funcionalidades de formatação |
+| `func main()`   | Função principal da aplicação         |
+| `fmt.Println()` | Exibe texto no terminal               |
+
+---
+
+# ▶️ Executando o programa
+
+```go id="nzzj5p"
+go run main.go
+```
+
+> 🚀 Esse é normalmente o primeiro programa criado ao aprender Go.
+
+---
+
+# ⚙️ Comando go
+
+O comando `go` é a principal ferramenta para gerenciamento do ecossistema Go.
+
+Ele automatiza grande parte do fluxo de desenvolvimento.
+
+---
+
+# 🛠️ Principais funcionalidades
+
+* ✅ compilar projetos
+* ✅ executar aplicações
+* ✅ rodar testes
+* ✅ formatar código
+* ✅ gerenciar dependências
+
+---
+
+# 📚 Principais comandos
+
+| Comando    | Função                |
+| ---------- | --------------------- |
+| `go run`   | Executa programas     |
+| `go build` | Compila o projeto     |
+| `go test`  | Executa testes        |
+| `go fmt`   | Formata código        |
+| `go mod`   | Gerencia dependências |
+
+---
+
+# 💻 Exemplos
+
+```go id="6svyrw"
+go build
+go test
+go fmt
+```
+
+---
+
+# 📦 Variáveis e Constantes
+
+Variáveis armazenam valores que podem ser alterados durante a execução do programa.
+
+Constantes armazenam valores fixos definidos em tempo de compilação.
+
+---
+
+# 🔄 Declarando variáveis
+
+## Utilizando var
+
+```go id="d78shh"
+var nome string = "Maria"
+```
+
+---
+
+## Utilizando inferência de tipo
+
+```go id="2ijhfd"
+idade := 25
+```
+
+> 💡 O operador `:=` permite que o Go descubra automaticamente o tipo da variável.
+
+---
+
+# 🔒 Declarando constantes
+
+```go id="bngt84"
+const PI = 3.14
+```
+
+---
+
+# 📊 Variáveis vs Constantes
+
+| Recurso    | Característica         |
+| ---------- | ---------------------- |
+| Variáveis  | Valores alteráveis     |
+| Constantes | Valores imutáveis      |
+| `var`      | Declaração tradicional |
+| `:=`       | Inferência automática  |
+
+---
+
+# 🧠 Valores Zero
+
+Variáveis não inicializadas recebem automaticamente valores padrão chamados de:
+
+> **Valores zero**
+
+---
+
+# 📋 Valores padrão
+
+| Tipo      | Valor zero |
+| --------- | ---------- |
+| Números   | `0`        |
+| Booleanos | `false`    |
+| Strings   | `""`       |
+| Pointers  | `nil`      |
+| Slices    | `nil`      |
+| Maps      | `nil`      |
+
+---
+
+# 💻 Exemplo
+
+```go id="m0wbto"
+var numero int
+
+fmt.Println(numero)
+```
+
+Saída:
+
+```text id="1y72yt"
+0
+```
+
+> 💡 Isso garante um estado inicial previsível e reduz erros de inicialização.
+
+---
+
+# 🔢 const e iota
+
+Constantes declaradas com `const` representam valores fixos em tempo de compilação.
+
+O `iota` cria constantes inteiras sequenciais automaticamente.
+
+---
+
+# 💻 Exemplo com iota
+
+```go id="sgrb83"
+const (
+    Domingo = iota
+    Segunda
+    Terca
+    Quarta
+)
+```
+
+---
+
+# 📊 Resultado do iota
+
+| Constante | Valor |
+| --------- | ----- |
+| Domingo   | 0     |
+| Segunda   | 1     |
+| Terca     | 2     |
+| Quarta    | 3     |
+
+---
+
+# 🚀 Onde o iota é utilizado?
+
+* ✅ enumerações
+* ✅ flags
+* ✅ sequências automáticas
+* ✅ controle de estados
+
+---
+
+# 🌍 Escopo
+
+Escopo determina onde uma variável pode ser acessada dentro do programa.
+
+Go possui:
+
+| Tipo de escopo   | Descrição          |
+| ---------------- | ------------------ |
+| Escopo de pacote | Variáveis globais  |
+| Escopo de função | Variáveis locais   |
+| Escopo de bloco  | Variáveis internas |
+
+---
+
+# ⚠️ Shadowing
+
+Shadowing ocorre quando uma variável em um escopo interno possui o mesmo nome de outra variável em um escopo externo.
+
+Nesse caso, a variável interna “esconde” temporariamente a original.
+
+---
+
+# 💻 Exemplo de Shadowing
+
+```go id="mpvq5s"
+nome := "Maria"
+
+if true {
+    nome := "Carlos"
+
+    fmt.Println(nome)
+}
+```
+
+> ⚠️ Shadowing excessivo pode causar bugs difíceis de identificar.
+
+---
+
+# 🚨 Cuidados importantes
+
+> ⚠️ Variáveis globais em excesso dificultam manutenção e testes.
+
+> 🚨 Shadowing pode gerar comportamentos inesperados.
+
+> 💡 Prefira escopos menores e variáveis bem definidas.
+
+---
+
+# 🎯 Benefícios desses conceitos
+
+* ✅ Código mais organizado
+* ✅ Melhor legibilidade
+* ✅ Maior previsibilidade
+* ✅ Menor risco de erros
+* ✅ Desenvolvimento mais seguro
+
+---
+
+# 📊 Resumo rápido
+
+| Conceito   | Objetivo               |
+| ---------- | ---------------------- |
+| `main()`   | Ponto de entrada       |
+| `go`       | Ferramenta principal   |
+| Variáveis  | Valores mutáveis       |
+| Constantes | Valores fixos          |
+| `iota`     | Sequências automáticas |
+| Escopo     | Controle de acesso     |
+
+---
+
+# ✅ Conclusão
+
+Os fundamentos da linguagem Go são essenciais para construir aplicações modernas, eficientes e confiáveis.
+
+Compreender variáveis, constantes, escopo, valores zero e o funcionamento do comando `go` é o primeiro passo para evoluir no ecossistema da linguagem.
