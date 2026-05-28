@@ -1,6 +1,10 @@
-# Goroutines
+# ⚡ Goroutines
 
-## O que são Goroutines?
+> Concorrência leve e eficiente utilizando o runtime da linguagem Go.
+
+---
+
+## 📌 O que são Goroutines?
 
 Goroutines são threads leves gerenciadas pelo runtime da linguagem Go que permitem a execução concorrente de funções.
 
@@ -8,19 +12,21 @@ Elas são uma das funcionalidades mais poderosas da linguagem, tornando simples 
 
 ---
 
-## Criando uma Goroutine
+# 🚀 Criando uma Goroutine
 
 Uma goroutine é criada utilizando a palavra-chave `go` antes da chamada de uma função.
 
-### Exemplo simples
+## Exemplo simples
 
 ```go
 go minhaFuncao()
 ```
 
+> ℹ️ A palavra-chave `go` instrui o runtime da linguagem a executar a função de maneira concorrente.
+
 ---
 
-## Exemplo completo
+# 💻 Exemplo completo
 
 ```go
 package main
@@ -41,18 +47,17 @@ func main() {
 }
 ```
 
-!!! note "Importante"
-O `time.Sleep()` é utilizado neste exemplo para evitar que o programa principal finalize antes da execução da goroutine.
+> 💡 O `time.Sleep()` é utilizado neste exemplo para evitar que o programa principal finalize antes da execução da goroutine.
 
 ---
 
-## Características das Goroutines
+# 📦 Características das Goroutines
 
 As goroutines possuem baixo consumo de memória e podem ser criadas em grande quantidade, permitindo que milhares ou até milhões delas executem simultaneamente.
 
 O runtime do Go é responsável pelo gerenciamento e escalonamento automático entre os núcleos da CPU.
 
-| Característica           | Descrição                                     |
+| 🚀 Característica        | 📌 Descrição                                  |
 | ------------------------ | --------------------------------------------- |
 | Leves                    | Consomem pouca memória                        |
 | Concorrentes             | Executam tarefas simultaneamente              |
@@ -61,17 +66,15 @@ O runtime do Go é responsável pelo gerenciamento e escalonamento automático e
 
 ---
 
-## Boas práticas
+# ✅ Boas práticas
 
-!!! tip "Boa prática"
-Utilize goroutines para tarefas concorrentes como servidores web, processamento paralelo e operações de rede.
+* 💡 Utilize goroutines para tarefas concorrentes como servidores web, processamento paralelo e operações de rede.
 
-!!! tip "Dica"
-Prefira dividir tarefas independentes em goroutines menores para melhorar a organização do código.
+* 💡 Prefira dividir tarefas independentes em goroutines menores para melhorar a organização do código.
 
 ---
 
-## Diferença entre Goroutines e Threads
+# ⚖️ Goroutines vs Threads
 
 Diferente das threads tradicionais dos sistemas operacionais, as goroutines são mais leves e eficientes, pois o próprio runtime da linguagem controla sua execução.
 
@@ -84,7 +87,7 @@ Diferente das threads tradicionais dos sistemas operacionais, as goroutines são
 
 ---
 
-## Comunicação entre Goroutines
+# 🔄 Comunicação entre Goroutines
 
 As goroutines normalmente se comunicam através de channels, seguindo o princípio:
 
@@ -92,17 +95,36 @@ As goroutines normalmente se comunicam através de channels, seguindo o princíp
 
 ---
 
-## Cuidados importantes
+# ⚠️ Cuidados importantes
 
-!!! warning "Cuidado"
-Criar muitas goroutines sem controle pode causar consumo excessivo de recursos e dificultar a sincronização das tarefas.
+> ⚠️ Criar muitas goroutines sem controle pode causar consumo excessivo de recursos e dificultar a sincronização das tarefas.
 
-!!! danger "Atenção"
-Goroutines mal sincronizadas podem gerar race conditions e comportamentos inesperados na aplicação.
+> 🚨 Goroutines mal sincronizadas podem gerar race conditions e comportamentos inesperados na aplicação.
 
 ---
 
-## Conclusão
+# 🎯 Principais vantagens
+
+* ✅ Concorrência simplificada
+* ✅ Melhor aproveitamento da CPU
+* ✅ Alto desempenho
+* ✅ Baixo consumo de memória
+* ✅ Escalabilidade elevada
+
+---
+
+# 📊 Resumo rápido
+
+| Recurso        | Benefício                |
+| -------------- | ------------------------ |
+| Goroutines     | Execução concorrente     |
+| Runtime Go     | Gerenciamento automático |
+| Baixo consumo  | Melhor performance       |
+| Escalabilidade | Milhares de execuções    |
+
+---
+
+# ✅ Conclusão
 
 A concorrência em Go facilita o desenvolvimento de aplicações modernas e escaláveis, especialmente em sistemas distribuídos, APIs e aplicações de alto desempenho.
 
